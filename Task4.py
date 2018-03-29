@@ -25,6 +25,18 @@ with open('calls.csv', 'r') as f:
 <list of numbers>
 电话号码不能重复，每行打印一条，按字典顺序排序后输出。
 """
+
+possible_phone_list = [x[0] for x in calls]
+impossible_phone_list = sum([[x[0], x[1]] for x in texts], []) + [x[1] for x in calls]
+telemarketers = sorted(set(possible_phone_list) - set(impossible_phone_list))
+
+print("These numbers could be telemarketers: ")
+for x in telemarketers:
+    print(x)
+
+"""
+我第一次提交时候写的，也可以顺利运行：
+
 phone_list = []
 
 def ever_done(records, i):
@@ -48,3 +60,4 @@ def sales(texts, calls):
     return "These numbers could be telemarketers:{}".format(ordered_sales_num)
 
 print(sales(texts, calls))
+"""

@@ -25,7 +25,7 @@ def counter(records, i):
     """
     Iterate the record list
 
-    i means the 1st or 2nd row of the phone numbers
+    i: the 1st or 2nd row of the phone numbers
     """
     for record in records:
         if record[i] not in phone_num:
@@ -38,6 +38,7 @@ def total_num(texts, calls):
     counter(texts, 1)
     counter(calls, 0)
     counter(calls, 1)
+    count = len(phone_num)
     return "There are {} different telephone numbers in the records.".format(count)
 
 print(total_num(texts, calls))

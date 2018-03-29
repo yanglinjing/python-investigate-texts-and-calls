@@ -75,11 +75,11 @@ to other fixed lines in Bangalore."
 注意：百分比应包含2位小数。
 """
 
-def percentage(calls):
+def percentage_080(calls):
 
-    rate_080 = (1 / len(calls_from_blr(calls))) * 100
-    percentage_080 = round(rate_080, 2)
+    rate = (1 / len(calls_from_blr(calls))) * 100
+    percentage = round(rate_080, 2)
 
-    return "{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage_080)
+    return "{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage)
 
 print(percentage(calls))

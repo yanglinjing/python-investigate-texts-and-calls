@@ -30,9 +30,9 @@ print(first_text_record())
 
 def last_call_record():
     """Print the last record of the call records"""
-    incoming_number = calls[0][0]
-    answering_number = calls[0][1]
-    time = calls[0][2]
-    during = calls[0][3]
+    incoming_number = calls[-1][0]
+    answering_number = calls[-1][1]
+    time = calls[-1][2]
+    during = calls[-1][3]
     return "Last record of calls, {} calls {} at time {}, lasting {} seconds".format(incoming_number, answering_number, time, during)
 print(last_call_record())
