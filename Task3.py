@@ -92,7 +92,6 @@ def calls_from_blr(calls):
 def percentage_080(calls):
 
     rate = (calls_from_blr_to_blr(calls) / calls_from_blr(calls)) * 100
-    print(rate)
     percentage = round(rate, 2)
 
     return "{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage)
