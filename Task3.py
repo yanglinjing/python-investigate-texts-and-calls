@@ -50,7 +50,7 @@ def area(call):
     return code_str
 
 
-def calls_from_blr(calls):
+def calls_from_blr_to_all(calls):
     for call in calls:
         if call[0][:5] == "(080)":
             if call[1][0] =="7" or call[1][0] =="8" or call[1][0] =="9":
@@ -61,7 +61,7 @@ def calls_from_blr(calls):
     ordered_phone_list = "\n" + "\n".join(sorted(phone_list))
     return "The numbers called by people in Bangalore have codes:{}".format(ordered_phone_list)
 
-print(calls_from_blr(calls))
+print(calls_from_blr_to_all(calls))
 
 
 """
@@ -75,11 +75,26 @@ to other fixed lines in Bangalore."
 注意：百分比应包含2位小数。
 """
 
+def calls_from_blr_to_blr(calls):
+    n = 0
+    for call in calls:
+        if (call[0][:5] == "(080)") and (call[1][:5] == "(080)"):
+            n += 1
+    return n
+
+def calls_from_blr(calls):
+    n = 0
+    for call in calls:
+        if call[0][:5] == "(080)":
+            n += 1
+    return n
+
 def percentage_080(calls):
 
-    rate = (1 / len(calls_from_blr(calls))) * 100
-    percentage = round(rate_080, 2)
+    rate = (calls_from_blr_to_blr(calls) / calls_from_blr(calls)) * 100
+    print(rate)
+    percentage = round(rate, 2)
 
     return "{} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage)
 
-print(percentage(calls))
+print(percentage_080(calls))
