@@ -36,3 +36,14 @@ def last_call_record():
     during = calls[-1][3]
     return "Last record of calls, {} calls {} at time {}, lasting {} seconds".format(incoming_number, answering_number, time, during)
 print(last_call_record())
+
+
+"""
+Daemon建议：
+
+#超级无敌简单版之[魔法参数](https://my.oschina.net/tenking/blog/29360)：
+~~~
+print("First record of texts, {} texts {} at time {}".format(*texts[0]))
+print("Last record of calls, {} calls {} at time {}, lasting {} seconds".format(*calls[-1]))
+~~~
+"""
