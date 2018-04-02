@@ -31,34 +31,16 @@ with open('calls.csv', 'r') as f:
 代号不能重复，每行打印一条，按字典顺序排序后输出。
 """
 
-phone_list = []
-
-def whether_in_list(call):
-    if call not in phone_list:
-        phone_list.append(call)
-    return phone_list
-
-
-def area(call):
-    area_code = []
-    for i in range(len(call)):
-        if call[i] != ")":
-            area_code.append(call[i])
-        else:
-            break
-    code_str = "".join(area_code[1:])
-    return code_str
-
+phone_list = set()
 
 def calls_from_blr_to_all(calls):
     for call in calls:
         if call[0][:5] == "(080)":
             #if call[1][0] =="7" or call[1][0] =="8" or call[1][0] =="9":
             if call[1][0] in "789":
-                whether_in_list(call[1][:4])
+                phone_list.add(call[1][:4])
             elif call[1][0] == "(":
-                whether_in_list(area(call[1]))
-                #whether_in_list(call[1][1:call[1].index(")")]) 不再用area函数
+                phone_list.add(call[1][1:call[1].index(")")])
 
     ordered_phone_list = "\n" + "\n".join(sorted(phone_list))
     return "The numbers called by people in Bangalore have codes:{}".format(ordered_phone_list)
